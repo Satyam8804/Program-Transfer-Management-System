@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PTMS"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp" />
+
+    </LinearLayout>
+
+    <!-- Search Bar -->
+
+    <!-- Program List -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custom_edittext"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Programs" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/program_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
+       />
+
+    <!-- Selected Program -->
+    <TextView
+        android:id="@+id/selected_program"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selected Program: None"
+
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <!-- Transfer Button -->
+    <Button
+        android:id="@+id/transfer_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transfer Program"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@color/purple"
+        android:textColor="@color/white"
+        android:padding="16dp"/>
+
+    <!-- Program Details -->
+    <LinearLayout
+        android:id="@+id/program_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/grey"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/program_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Name: Computer Science"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/program_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Code: CS101"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/program_credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Credits: 120"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+        <TextView
+            android:id="@+id/program_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Duration: 4 Years"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/program_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada augue ac arcu pharetra facilisis. "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PTMS" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="SearchViewTheme" parent="Widget.AppCompat.SearchView">
+        <!-- SearchView hint text color -->
+        <item name="android:textColorHint">@color/grey</item>
+        <!-- SearchView text color -->
+        <item name="android:textColor">@color/black</item>
+        <!-- SearchView underline color -->
+<!--        <item name="queryBackground">@drawable/search_view_background</item>-->
+        <!-- SearchView close button icon -->
+        <item name="closeIcon">@drawable/ic_close</item>
+        <!-- SearchView search button icon -->
+        <item name="searchIcon">@drawable/ic_search</item>
+        <!-- SearchView voice search button icon -->
+        <item name="voiceIcon">@drawable/ic_voice_search</item>
+        <!-- SearchView clear button icon -->
+<!--        <item name="clearIcon">@drawable/ic_clear</item>-->
+    </style>
+
+
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    tools:context=".Status">
+
+    <!-- Header Image -->
+    <!-- Header Image -->
+<!--    <ImageView-->
+<!--        android:id="@+id/header_image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/header_image"-->
+<!--        android:scaleType="centerCrop"/>-->
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/subtitle_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="Choose a program to transfer to"
+        android:padding="16dp"
+        />
+
+    <!-- Divider Line -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/subtitle_text_view"
+        android:layout_marginTop="16dp"
+        android:background="@color/black"/>
+
+    <!-- Program Spinner -->
+    <Spinner
+        android:id="@+id/program_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+
+        android:spinnerMode="dropdown"
+        android:popupBackground="@color/white"
+        android:dropDownVerticalOffset="50dp"
+        android:dropDownHorizontalOffset="10dp"
+        android:dropDownWidth="match_parent"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"/>
+
+    <!-- Transfer Button -->
+    <Button
+        android:id="@+id/transfer_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/program_spinner"
+        android:layout_marginTop="16dp"
+        android:text="Transfer program"
+        android:textColor="@color/black"
+        android:background="@color/teal_200"/>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/transfer_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/teal_200"
+        android:visibility="visible"/>
+
+</RelativeLayout>
