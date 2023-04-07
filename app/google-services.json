@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "169196565329",
+    "project_id": "ptms-b5d2e",
+    "storage_bucket": "ptms-b5d2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169196565329:android:684aeac31d49277e8e1970",
+        "android_client_info": {
+          "package_name": "com.example.ptms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169196565329-86cpdo4a91rddk0ooe012ecu91vrnb7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgQ4mJx4LyzgMnQqq5uZEi6MLphnWZTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169196565329-86cpdo4a91rddk0ooe012ecu91vrnb7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
