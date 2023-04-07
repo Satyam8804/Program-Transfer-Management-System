@@ -45,6 +45,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".register_page"
+            android:exported="false" />
+        <activity
+            android:name=".studentInfo"
+            android:exported="false" />
     </application>
 
 </manifest>
