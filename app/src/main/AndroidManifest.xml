@@ -16,9 +16,6 @@
             android:exported="false" />
         <activity
             android:name=".LoadingScreen"
-            android:exported="true" />
-        <activity
-            android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +24,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginPage"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".FrontPage"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
         <activity
             android:name=".Status"
             android:exported="false" />
