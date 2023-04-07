@@ -32,7 +32,7 @@ class LoginPage : AppCompatActivity() {
             if (regno.isNotEmpty() && pass.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(regno, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val i: Intent = Intent(applicationContext, FrontPage::class.java)
+                        val i: Intent = Intent(applicationContext, studentInfo::class.java)
                         startActivity(i);
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -43,7 +43,7 @@ class LoginPage : AppCompatActivity() {
             }
         }
         register.setOnClickListener {
-            var intent: Intent = Intent(this, register_page::class.java)
+            val intent: Intent = Intent(this, register_page::class.java)
             startActivity(intent)
         }
     }
