@@ -43,7 +43,7 @@ class LoginPage : AppCompatActivity() {
             }
         }
         register.setOnClickListener {
-            var intent: Intent = Intent(this, register_page::class.java)
+            val intent: Intent = Intent(this, register_page::class.java)
             startActivity(intent)
         }
     }
