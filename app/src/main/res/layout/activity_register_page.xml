@@ -43,6 +43,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_email_24"
                 android:hint="Email id"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
