@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:id="@+id/drawerLayout"
+    tools:context=".studentInfo">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="#85630DC6"
+                android:elevation="10dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:title="Student's Profile"
+                app:titleMarginStart="10dp"
+                app:titleTextColor="#fff"
+                tools:ignore="MissingConstraints" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:padding="20dp"
+                android:background="@drawable/custom_border"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/student_image"
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:id="@+id/student_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/student_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="John Doe"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/student_major"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/student_email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Major: Computer Science"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/student_gpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="GPA: 3.7"
+                    android:layout_below="@id/student_major"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+
+                <!-- Student Age -->
+                <TextView
+                    android:id="@+id/student_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Age: 22"
+                    android:layout_below="@id/student_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+
+                <!-- Student ID -->
+                <TextView
+                    android:id="@+id/student_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="ID: 123456"
+                    android:layout_below="@id/student_age"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+
+                <!-- Student Email -->
+                <TextView
+                    android:id="@+id/student_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Email: john.doe@example.com"
+                    android:layout_below="@id/student_id"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+
+
+
+                <!-- Edit Student Button -->
+                <Button
+                    android:id="@+id/edit_student_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Student Info"
+                    android:layout_below="@id/student_gpa"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/menuBar"
+        app:menu="@menu/side_menu"
+        android:layout_marginTop="-32dp"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        >
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
