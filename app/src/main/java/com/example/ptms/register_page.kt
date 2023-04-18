@@ -53,8 +53,6 @@ class register_page : AppCompatActivity() {
                         } catch (e: FirebaseAuthUserCollisionException) {
                             Toast.makeText(this, "Some error! Please try again"+e.toString(), Toast.LENGTH_SHORT).show()
                         } catch (e: Exception) {
-
-
                             Toast.makeText(
                                 this,
                                 it.exception.toString(),
