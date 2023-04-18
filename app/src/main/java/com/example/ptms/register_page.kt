@@ -9,7 +9,12 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.*
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import java.util.jar.Attributes.Name
 
 
 class register_page : AppCompatActivity() {
@@ -19,12 +24,17 @@ class register_page : AppCompatActivity() {
     private lateinit var email:EditText
     private lateinit var username:EditText
     private lateinit var password:EditText
+    private lateinit var contact:EditText
+    private lateinit var name:EditText
+    private lateinit var db:FirebaseDatabase
+    private lateinit var reference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_register_page)
         registerButton = findViewById(R.id.registerButton)
         firebaseAuth = FirebaseAuth.getInstance()
+        db = FirebaseDatabase.getInstance()
 
 
         loginText = findViewById(R.id.loginText)
@@ -32,21 +42,30 @@ class register_page : AppCompatActivity() {
         email = findViewById(R.id.emailId)
         username = findViewById(R.id.registerusername)
         password= findViewById(R.id.registerpassword)
+        name = findViewById(R.id.Name)
+        contact = findViewById(R.id.contactNo)
         registerButton?.setOnClickListener{
+           val uname = username.text.toString()
             val em = email.text.toString()
             val pass = password.text.toString()
-            if(em.isNotEmpty() && pass.isNotEmpty() ) {
+            var nam = name.text.toString()
+            var cont = contact.text.toString()
+            if(em.isNotEmpty() && pass.isNotEmpty() && uname.isNotEmpty()&& nam.isNotEmpty() && cont.isNotEmpty() ) {
+
                 firebaseAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener {
-                    Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show()
+
+
+
                     if (it.isSuccessful) {
-                        Toast.makeText(this, "Succesful", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show()
+                        realtimeDatabase(nam ,em,uname,8.5f,"Btech CSE",cont)
                         var i: Intent = Intent(this, LoginPage::class.java)
                         startActivity(i)
                     } else {
                         try {
                             throw it.getException()!!
                         }
-                        catch( e:FirebaseAuthInvalidCredentialsException) {
+                        catch( e: FirebaseAuthInvalidCredentialsException) {
                            Toast.makeText(this,"Invalid Credentials Check your email",Toast.LENGTH_SHORT).show()
                         }catch (e: FirebaseAuthWeakPasswordException) {
                             Toast.makeText(this, "Weak Paasword", Toast.LENGTH_SHORT).show()
@@ -80,4 +99,15 @@ class register_page : AppCompatActivity() {
 
 
     }
+    fun realtimeDatabase(nam:String,em:String,uname:String,cgpa:Float,program:String,cont:String) {
+        val users = User(nam, em, uname, cgpa, program, cont)
+        reference = FirebaseDatabase.getInstance().getReference("Users")
+        reference.child(uname).setValue(users).addOnCompleteListener{
+            if(it.isSuccessful) {
+                Toast.makeText(this, "Your data saved ", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+    }
+
 }
