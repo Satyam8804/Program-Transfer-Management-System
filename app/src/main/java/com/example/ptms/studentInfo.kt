@@ -32,9 +32,7 @@ class studentInfo : AppCompatActivity() {
         navigationView = findViewById(R.id.menuBar)
         toolbar = findViewById(R.id.toolbar)
 
-
         setSupportActionBar(toolbar)
-
         val toggle = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_open,R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState()
@@ -56,12 +54,7 @@ class studentInfo : AppCompatActivity() {
             }
             drawerLayout.closeDrawer(GravityCompat.START)
              true
-
         };
     }
-
-
-
-
 }
 
