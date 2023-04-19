@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
         android:elevation="10dp"
         app:srcCompat="@drawable/transfer_logo"
         />

@@ -1,6 +1,7 @@
 package com.example.ptms
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class Guidelines : AppCompatActivity() {
+    lateinit var prog_selected:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guidelines)
@@ -61,10 +63,16 @@ class Guidelines : AppCompatActivity() {
         checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 changeBtn.setBackgroundColor(Color.parseColor("#8692f7"))
-            }
-            else{
+            } else {
                 changeBtn.setBackgroundColor(Color.parseColor("grey"))
             }
+        }
+        prog_selected = intent.getStringExtra("selected_program").toString();
+
+        changeBtn.setOnClickListener{
+            val int:Intent = Intent(this,LastPage::class.java)
+            int.putExtra("program_enroll",prog_selected)
+            startActivity(int)
         }
 
     }
