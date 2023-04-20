@@ -1,30 +1,25 @@
 package com.example.ptms
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.io.ByteArrayOutputStream
 import java.util.*
-import kotlin.collections.ArrayList as arr
 
 class FrontPage : AppCompatActivity(),SelectListener{
-    lateinit var transfer_btn:Button
-    lateinit var recyclerView: RecyclerView
+    private lateinit var transfer_btn:Button
+    private lateinit var recyclerView: RecyclerView
     private var arrProgram = ArrayList<Model>()
-    lateinit var searchView: SearchView
+    private lateinit var searchView: SearchView
     private lateinit var adapter:ProgramAdapter
-    lateinit var tv:TextView
+    private lateinit var tv:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_front_page)
@@ -42,7 +37,6 @@ class FrontPage : AppCompatActivity(),SelectListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 filterList(newText)
                 return true
@@ -52,16 +46,17 @@ class FrontPage : AppCompatActivity(),SelectListener{
 
         tv = findViewById(R.id.selected_program)
         transfer_btn = findViewById(R.id.transfer_button)
+
+        transfer_btn.isEnabled = false
+        transfer_btn.setBackgroundColor(Color.parseColor("grey"));
+
         transfer_btn.setOnClickListener{
             val i:Intent = Intent(this,Guidelines::class.java)
             i.putExtra("selected_program",tv.text.toString())
-            tv.setText("")
             startActivity(i)
         }
-
     }
     fun filterList(query: String?) {
-
         if (query != null) {
             val filteredList = ArrayList<Model>()
             for (i in arrProgram) {
@@ -69,7 +64,6 @@ class FrontPage : AppCompatActivity(),SelectListener{
                     filteredList.add(i)
                 }
             }
-
             if (filteredList.isEmpty()) {
                 Toast.makeText(this, "No Data found", Toast.LENGTH_SHORT).show()
             } else {
@@ -82,7 +76,7 @@ class FrontPage : AppCompatActivity(),SelectListener{
         fun onItemClick(view: View, position: Int, title: String)
     }
 
-    fun createArrayList(): ArrayList<Model> {
+    private fun createArrayList(): ArrayList<Model> {
 //        val arrProgram = ArrayList<Model>()
         val obj = Model()
 
@@ -130,8 +124,9 @@ class FrontPage : AppCompatActivity(),SelectListener{
     }
 
     override fun onItemClicked(model: Model?) {
-
-        tv.setText(model?.getTitle())
+        tv.text = model?.getTitle()
+        transfer_btn.isEnabled = true
+        transfer_btn.setBackgroundColor(Color.parseColor("#8692f7"))
 //        Toast.makeText(this,model?.getTitle(),Toast.LENGTH_SHORT).show()
     }
 

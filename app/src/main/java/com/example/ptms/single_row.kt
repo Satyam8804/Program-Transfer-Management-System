@@ -8,7 +8,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class single_row(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
      val programTitle: TextView = itemView.findViewById(R.id.header)
      val programImg: ImageView = itemView.findViewById(R.id.img1)
      val progDesc:TextView = itemView.findViewById(R.id.progDesc)

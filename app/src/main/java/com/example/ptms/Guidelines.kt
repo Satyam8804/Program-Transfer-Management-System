@@ -1,19 +1,21 @@
 package com.example.ptms
 
-import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.core.app.NotificationCompat
 
 class Guidelines : AppCompatActivity() {
-    lateinit var prog_selected:String
+    private lateinit var prog_selected:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guidelines)
@@ -60,20 +62,38 @@ class Guidelines : AppCompatActivity() {
 
         val changeBtn: Button = findViewById(R.id.button)
         val checkbox:CheckBox = findViewById(R.id.checkBox)
-        checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
+
+        checkbox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
+                changeBtn.isEnabled = isChecked
                 changeBtn.setBackgroundColor(Color.parseColor("#8692f7"))
+
+                changeBtn.setOnClickListener{
+                    // notification should be added here
+                    val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        val channel = NotificationChannel("channelId", "channelName", NotificationManager.IMPORTANCE_DEFAULT)
+                        notificationManager.createNotificationChannel(channel)
+                    }
+
+                    val builder = NotificationCompat.Builder(this, "channelId")
+                        .setSmallIcon(R.drawable.ic_logo)
+                        .setContentTitle("Program Transfer Request")
+                        .setContentText("We have received your application and will process it as soon as possible.")
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+                    notificationManager.notify(0, builder.build())
+
+                    val int:Intent = Intent(this,LastPage::class.java)
+                    int.putExtra("program_enroll",prog_selected)
+                    startActivity(int)
+                }
             } else {
+                changeBtn.isEnabled = false
                 changeBtn.setBackgroundColor(Color.parseColor("grey"))
             }
         }
         prog_selected = intent.getStringExtra("selected_program").toString();
-
-        changeBtn.setOnClickListener{
-            val int:Intent = Intent(this,LastPage::class.java)
-            int.putExtra("program_enroll",prog_selected)
-            startActivity(int)
-        }
-
     }
 }
