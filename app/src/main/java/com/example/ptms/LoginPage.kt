@@ -1,6 +1,8 @@
 package com.example.ptms
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,6 +19,7 @@ class LoginPage : AppCompatActivity() {
     private lateinit var register:TextView
     private lateinit var loginButton: Button
     private lateinit var regNo:EditText
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,26 +34,34 @@ class LoginPage : AppCompatActivity() {
         loginButton.setOnClickListener {
             val email= username.text.toString()
             val pass = password.text.toString()
-            var regno = regNo.text.toString()
+            val regno = regNo.text.toString()
             if (email.isNotEmpty() && pass.isNotEmpty() && regno.isNotEmpty() ) {
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val i: Intent = Intent(applicationContext, studentInfo::class.java)
+                        val i: Intent = Intent(applicationContext, StudentInfo::class.java)
                         i.putExtra("Reg No",regno)
                         startActivity(i);
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
                     }
-
                 }
             }
+            val editor = sharedPreferences.edit()
+            editor.putString("username", email)
+            editor.putString("regNo", regno)
+            editor.putString("password", pass)
+            editor.apply()
         }
         register.setOnClickListener {
             val intent: Intent = Intent(this, register_page::class.java)
             startActivity(intent)
         }
+        sharedPreferences = getSharedPreferences("userData", Context.MODE_PRIVATE)
+        username.setText(sharedPreferences.getString("username", ""))
+        regNo.setText(sharedPreferences.getString("regNo", ""))
+        password.setText(sharedPreferences.getString("password", ""))
     }
-
-
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }

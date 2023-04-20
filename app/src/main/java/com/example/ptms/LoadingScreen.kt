@@ -11,7 +11,6 @@ class LoadingScreen : AppCompatActivity() {
         setContentView(R.layout.activity_loading_screen)
 
         supportActionBar?.hide()
-
         Handler().postDelayed({
             val intent = Intent(this@LoadingScreen, LoginPage::class.java)
             startActivity(intent)
