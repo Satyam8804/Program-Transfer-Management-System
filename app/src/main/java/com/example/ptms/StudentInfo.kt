@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.childEvents
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class StudentInfo : AppCompatActivity() {
@@ -35,7 +36,7 @@ class StudentInfo : AppCompatActivity() {
     lateinit var student_contact:TextView
     lateinit var student_program:TextView
     lateinit var student_name:TextView
-    lateinit var image:ImageView
+    lateinit var image:CircleImageView
     lateinit var databaseReference: DatabaseReference
     lateinit var databaseReference2: DatabaseReference
 
@@ -73,7 +74,7 @@ class StudentInfo : AppCompatActivity() {
                 student_id.text = "ID : "+regNo.toString()
                 student_gpa.text = "CGPA : "+cgpa.toString()
                 student_contact.text = "Contact No : "+contact.toString()
-                student_program.text = "Program Enrolled : "+program.toString()
+                student_program.text = "Program : "+program.toString()
 
             }
         }
@@ -85,16 +86,9 @@ class StudentInfo : AppCompatActivity() {
                 val uri = it.child("uri").value.toString()
                 image.setImageURI(Uri.parse(uri))
                 Glide.with(this).load(uri).into(image)
-
             }
         }
         val border = image.getBackground()
-
-
-
-
-
-
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.menuBar)
         toolbar = findViewById(R.id.toolbar)

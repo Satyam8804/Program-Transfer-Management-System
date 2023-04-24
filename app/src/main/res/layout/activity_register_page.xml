@@ -17,6 +17,7 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/custom_edittext"
         app:cardCornerRadius="30dp"
+        android:alpha="1"
         app:cardElevation="20dp">
 
         <LinearLayout
@@ -104,8 +105,7 @@
                     android:layout_width="20px"
                     android:layout_height="20px"
                     android:id="@+id/image"
-                    ></ImageView>
-
+                    />
                 <Button
                     android:id="@+id/uploadimage"
                     android:layout_width="match_parent"
