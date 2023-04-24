@@ -38,13 +38,14 @@ class StudentInfo : AppCompatActivity() {
     lateinit var image:ImageView
     lateinit var databaseReference: DatabaseReference
     lateinit var databaseReference2: DatabaseReference
-    lateinit var databaseReference3: DatabaseReference
+
     private lateinit var sharedPreferences: SharedPreferences
     lateinit var reg:String
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_info)
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
         sharedPreferences = getSharedPreferences("userData", Context.MODE_PRIVATE)
 
@@ -57,11 +58,8 @@ class StudentInfo : AppCompatActivity() {
         student_contact = findViewById(R.id.student_contact)
         student_program = findViewById(R.id.student_program)
         image = findViewById(R.id.imageView3)
-        var prog_selected = intent.getStringExtra("selected_program")
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-        FirebaseDatabase.getInstance().getReference("Users").child(reg)
-            .child("program").setValue(prog_selected.toString())
+
         databaseReference.child(reg).get().addOnSuccessListener {
             if(it.exists()){
                 val name = it.child("name").value
