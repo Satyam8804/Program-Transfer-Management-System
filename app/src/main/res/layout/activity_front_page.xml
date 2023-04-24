@@ -37,12 +37,24 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/custom_edittext"
         android:iconifiedByDefault="false"
-        android:queryHint="Search Programs" />
+        android:queryHint="Search Programs">
+    </androidx.appcompat.widget.SearchView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingStart="20dp"
+        android:gravity="center"
+        android:text="Select the Program  " />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/program_list"
@@ -60,8 +72,7 @@
         android:id="@+id/selected_program"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selected Program: None"
-
+        android:text="Selected Program: "
         android:textSize="16sp"
         android:textStyle="bold"
         android:padding="16dp"/>
@@ -127,7 +138,7 @@
             android:id="@+id/program_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Program Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada augue ac arcu pharetra facilisis. "
+            android:text=""
             android:textSize="16sp"
             android:textStyle="bold"
             android:paddingBottom="8dp"/>

@@ -18,8 +18,5 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(applicationContext, ProgramCompare::class.java)
             startActivity(i);
         }
-
-
-
     }
 }

@@ -9,6 +9,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="navigation_open" >Open Navigation drawer</string>
-    <string name="navigation_close" >Close Navigation drawer</string>
+    <string name="navigation_open">Open Navigation drawer</string>
+    <string name="navigation_close">Close Navigation drawer</string>
+    <string name="cse">Computer Science Engineering applies algorithms, programming languages, and math concepts to solve problems and innovate solutions. Versatile and essential in IT, healthcare, finance, and more.</string>
+    <string name="mech">Mechanical Engineering is a branch of engineering that involves the design, manufacturing, and maintenance of mechanical systems. It deals with the principles of physics, materials science, and thermodynamics to develop innovative solutions for industries.</string>
+    <string name="ece">Electronics and Communication Engineering is a field of engineering that deals with the design and development of electronic and communication systems. It involves the use of electronics, telecommunications, and signal processing to develop advanced technologies for various industries.</string>
+    <string name="civil">Civil Engineering is a branch of engineering that deals with the design, construction, and maintenance of infrastructure, such as buildings, roads, bridges, and water systems. It involves the application of mathematics, physics, and materials science to solve complex problems.</string>
+    <string name="elec">Electrical Engineering is a field of engineering that deals with the study and application of electricity, electronics, and electromagnetism. It involves the design, development, and maintenance of electrical systems, including power generation and distribution, communication systems, and electronic devices.</string>
+    <string name="Aero">Aeronautical Engineering is a branch of engineering that deals with the design, development, and maintenance of aircraft and spacecraft. It involves the application of aerodynamics, materials science, and propulsion systems to develop advanced technologies for the aerospace industry.</string>
+    <string name="bio">Biotechnology Engineering is a field of engineering that applies principles of biology and engineering to develop innovative solutions in healthcare, agriculture, and environmental industries. It involves the use of genetic engineering, cell culture, and bioprocessing to develop new technologies.</string>
 </resources>

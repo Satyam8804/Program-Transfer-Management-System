@@ -43,6 +43,7 @@
                 android:id="@+id/Name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
@@ -102,6 +103,7 @@
                 android:background="@drawable/custom_edittext" android:drawablePadding="8dp"
                 android:hint="Contact No"
                 android:inputType="number"
+                android:drawableLeft="@drawable/baseline_phone_24"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
