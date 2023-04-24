@@ -51,7 +51,7 @@ class FrontPage : AppCompatActivity(),SelectListener{
         transfer_btn.setBackgroundColor(Color.parseColor("grey"));
 
         transfer_btn.setOnClickListener{
-            val i:Intent = Intent(this,Guidelines::class.java)
+            var i = Intent(this,Guidelines::class.java)
             i.putExtra("selected_program",tv.text.toString())
             startActivity(i)
         }

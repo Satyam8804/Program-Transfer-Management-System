@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/guidelinesView"
             android:layout_width="match_parent"
-            android:layout_height="642dp"
+            android:layout_height="542dp"
             android:layout_margin="10dp"
             android:textColor="@color/black"
             android:textSize="20sp"

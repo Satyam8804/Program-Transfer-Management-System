@@ -42,6 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/profile"
+                android:background="@drawable/roundimage"
                 android:layout_marginHorizontal="10dp"/>
 
             <LinearLayout

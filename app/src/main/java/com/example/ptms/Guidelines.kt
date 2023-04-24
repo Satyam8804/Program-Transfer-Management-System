@@ -59,6 +59,7 @@ class Guidelines : AppCompatActivity() {
 
         guidelines.text = para;
         guidelines.movementMethod = ScrollingMovementMethod();
+        prog_selected = intent.getStringExtra("selected_program").toString();
 
         val changeBtn: Button = findViewById(R.id.button)
         val checkbox:CheckBox = findViewById(R.id.checkBox)
@@ -86,7 +87,7 @@ class Guidelines : AppCompatActivity() {
                     notificationManager.notify(0, builder.build())
 
                     val int:Intent = Intent(this,LastPage::class.java)
-                    int.putExtra("program_enroll",prog_selected)
+                    int.putExtra("selected_program",prog_selected)
                     startActivity(int)
                 }
             } else {
@@ -94,6 +95,6 @@ class Guidelines : AppCompatActivity() {
                 changeBtn.setBackgroundColor(Color.parseColor("grey"))
             }
         }
-        prog_selected = intent.getStringExtra("selected_program").toString();
+
     }
 }

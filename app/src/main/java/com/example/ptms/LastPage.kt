@@ -15,12 +15,13 @@ class LastPage : AppCompatActivity() {
         setContentView(R.layout.activity_last_page)
 
         textView= findViewById(R.id.tv)
-        val prog_selected = intent.getStringExtra("program_enroll")
+        val prog_selected = intent.getStringExtra("selected_program")
         textView.text = "You have Successfully transfered your program to $prog_selected"
 
         val btn = findViewById<Button>(R.id.btnBack)
         btn.setOnClickListener{
             val i = Intent(this, StudentInfo::class.java)
+            i.putExtra("selected_program",prog_selected)
             startActivity(i)
         }
     }
